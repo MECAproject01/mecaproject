@@ -57,7 +57,7 @@
 
 [결과물 동영상]
 
-[홍보물1](Data/documents/br.pdf)
+[홍보물](/Data/documents/br.pdf)
 
 
 ## 활용방안 및 기대효과
