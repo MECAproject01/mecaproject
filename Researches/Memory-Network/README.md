@@ -6,6 +6,7 @@
 
 ![w](Data/image/01/memory1.png)
 
+![w3](Data/image/01/memory2.png)
 
 [[File:메모리연결망 HW 상세구조.png]]
 
@@ -56,16 +57,18 @@
 
 ### B. 메모리 연결망 HW/SW 개발보드 종류 및 규격
 * Bittware XUPP3R 개발 보드
+
 [[File:Btware 개발보드.png]]
 
 <Bittware 개발 보드>
 
    - Xilinx xcvu9p-flgb2014-2-e FPGA 장착
    - 4 DDR4 RDIMM 슬롯지원, PCIe Gen3 x16 지원
-: &#8251; 제품정보 [http://www.bittware.com/fpga/xup-p3r/ http://www.bittware.com/fpga/xup-p3r]
+     [제품정보](http://www.bittware.com/fpga/xup-p3r/)
 
 
 * AlphaData 개발 보드
+
 [[File:Alphadata 개발보드.png]]
 
 <AlphaData 개발 보드>
@@ -73,51 +76,19 @@
    - Xilinx Kintex&reg; UltraScale&trade; XCKU115-2 - FLVA1517E
    - 6x PCI Express Gen3 x8 cores
    - 16GB DDR4 내장메모리
-   - 
-      &#8251; [제품정보](https://www.alpha-data.com/dcp/products.php?product=adm-pcie-8k5/ https://www.alpha-data.com/dcp/products.php?product=adm-pcie-8k5)
+     [제품정보](https://www.alpha-data.com/dcp/products.php?product=adm-pcie-8k5/)
 
 ## 3. 메모리 연결망 HW Device Driver
 <개발 SW 사양 및 툴체인 버전>
-{| class="wikitable" style="text-align: Left"
-|-
-! scope="col"| SW
-! scope="col"| 버전 및 사양
-|-
-! scope="row"| 부트로더
-(UEFI BIOS)
-|DELL R730 & HPE DL380 Gen10 UEFI BIOS Firmware
-:- Dell UEFI BIOS
-:- HPE UEFI BIOS
-|-
-! scope="row"| 커널
-|Kernel 4.4.XXX기반
-:- native kernel 4.4.0-169-generic
-|-
-! scope="row"| root file system
-|
-:- x86_64 Ubuntu 16.04 LTS
-:- x86_64 Ubuntu 18.04 LTS
-:- x86_64 Ubuntu 19.04 LTS
-|-
-! scope="row"| Device driver
-|
-:- [Gen-Z 0.7 Hardware Device Driver](https://github.com/moca-etri/Gen-Z-0.7-Hardware-Device-Driver/)
-:- [Gen-Z 1.0 Hardware Device Driver](https://github.com/moca-etri/Gen-Z-1.0-Hardware-Device-Driver/)
-:- gzd-5.0 지원예정
-|-
-! scope="row"| DKMS
-(Dynamic kernel
-Module Support)
-|
-:- ver 2.2.0.3
-|-
-! scope="row"| Native compiler
-(GCC)
-|
-:- x86_64-linux-gnu
-:- gcc 5.4.0(20160609)
-|-
-|}
+|SW| 버전 및 사양|
+|:---------:|:-------------------------------------:|
+|부트로더<br>(UEFI BIOS)|DELL R730 & HPE DL380 Gen10 UEFI BIOS Firmware<br>- Dell UEFI BIOS<br>- HPE UEFI BIOS
+|커널|Kernel 4.4.XXX기반<br>- native kernel 4.4.0-169-generic
+|root file system|- x86_64 Ubuntu 16.04 LTS<br>- x86_64 Ubuntu 18.04 LTS<br>- x86_64 Ubuntu 19.04 LTS
+|Device driver|- [Gen-Z 0.7 Hardware Device Driver](https://github.com/moca-etri/Gen-Z-0.7-Hardware-Device-Driver/)<br>- [Gen-Z 1.0 Hardware Device Driver](https://github.com/moca-etri/Gen-Z-1.0-Hardware-Device-Driver/)<br>- gzd-5.0 지원예정
+|DKMS<br>(Dynamic kernel Module Support)|- ver 2.2.0.3
+|Native compiler<br>(GCC)|- x86_64-linux-gnu<br>- gcc 5.4.0(20160609)
+
 
 ## 4.구현 및 테스트
 * Gen-Z 1.0 스펙 SystemVerilog RTL 코드 및 FPGA 구현
