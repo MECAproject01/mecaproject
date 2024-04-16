@@ -51,9 +51,9 @@
 |[L4fame Build Container execution environment](https://github.com/moca-etri/l4fame/)|GPL v2 라이선스|무|운영체제|공개완료
 
 ## 결과물
-[메모리 연결망]
+[메모리 연결망](/Researches/Memory-Network/Memory-Network.md)
 
-[랙 컴퓨팅 PoC]
+[랙 컴퓨팅 PoC](/Researches/Rack_computing_PoC/Rack_computing_PoC.md)
 
 [결과물 동영상]
 
