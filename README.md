@@ -55,7 +55,7 @@
 
 [랙 컴퓨팅 PoC](/Researches/Rack_computing_PoC/Rack_computing_PoC.md)
 
-[결과물 동영상](/Researches/Result_video/Result_video.md)
+[결과물 동영상](/Researches/Result_Video/Result_Video.md)
 
 [홍보물](/Data/documents/br.pdf)
 
