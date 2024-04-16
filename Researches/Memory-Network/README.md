@@ -4,28 +4,26 @@
 * 메모리 연결망 프로토콜은 Gen-Z 0.7, 1.0 스펙을 준수
 * CPU와 연동을 위한 별도의 device driver에서 바이트 단위, 블록 단위 접근 가능
 
-![w](Data/image/01/memory1.png)
+![w](/Data/image/01/memory1.png)
 
-![w3](Data/image/01/memory2.png)
-
-[[File:메모리연결망 HW 상세구조.png]]
+![w2](/Data/image/01/memory2.png)
 
 <메모리연결망 하드웨어 상세구조>
 
 
 
-[[File:메모리연결망 레이어별 고도화.png]]
+![w3](/Data/image/01/memory3.png)
 
 <메모리연결망 레이어별 고도화>
 
 
-[[File:메모리연결망 스위치 구조.png]]
+![w4](/Data/image/01/memory4.png)
 
 <메모리연결망 스위치 구조>
 
 
 
-[[File:메모리 중심 컴퓨팅 소프트웨어 개요.png]]
+![w5](/Data/image/01/memory5.png)
 
 <메모리 중심 컴퓨팅 소프트웨어 개요>
 
@@ -38,14 +36,11 @@
 * 컨테이너 브로커를 사용한 Gen-Z 메모리 Pool Manager구현으로 인한 컨테이너 수준 안정성 확보
 * 다중 APP의 접근 제한 모델
 
-[[File:Gen-Z 메모리 풀 관리 SW.png]]
+![w6](/Data/image/01/memory6.png)
 
 <Gen-Z 메모리 풀 관리 SW>
 
-
-
-
-[[File:확장메모리 풀.png]]
+![w6](/Data/image/01/memory6.png)
 
 <확장메모리 풀>
 
@@ -58,7 +53,7 @@
 ### B. 메모리 연결망 HW/SW 개발보드 종류 및 규격
 * Bittware XUPP3R 개발 보드
 
-[[File:Btware 개발보드.png]]
+![w7](/Data/image/01/memory7.png)
 
 <Bittware 개발 보드>
 
@@ -69,7 +64,7 @@
 
 * AlphaData 개발 보드
 
-[[File:Alphadata 개발보드.png]]
+![w8](/Data/image/01/memory8.png)
 
 <AlphaData 개발 보드>
 
