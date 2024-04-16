@@ -1,34 +1,17 @@
-# 2차년도 결과물
-## 1. MOCA_Hardware 2019_Demo
+# 2차년도 결과물 (Video)
+## 1. [MOCA_Hardware 2019_Demo](/Data/video/MOCA_Hardware_2019_Demo.webm)
 
-(/Data/video/MOCA_Hardware_2019_Demo.webm)
+## 2. [메모리공유(FAME)](/Data/video/메모리공유(FAME).webm)
 
-## 2. 메모리공유(FAME)
+## 3. [RackComputing Hardware](/Data/video/RackComputing_Hardware_Dev.webm)
 
-<youtube>P3epK_QUrFg</youtube>
-
-
-## 3. RackComputing Hardware
-
-<youtube>-B4A6sW4FIg</youtube>
+## 4. [RSD Software](/Data/video/RSD_Software_Dev.webm)
 
 
-## 4. RSD Software
+# 3차년도 결과물 (Video)
 
-<youtube>W1lUkgQ9XbQ</youtube>
+## 1. [MOCA 2020 Demo](/Data/video/ETRI Gen-Z.mp4)
 
+## 2. [RackComputing Hardware](/Data/video/KTNF 동영상.mp4)
 
-# 3차년도 결과물
-
-## 1. MOCA 2020 Demo
-
-<youtube>ZJ9KbtVEQbc</youtube>
-
-
-## 2. RackComputing Hardware
-<youtube>4o2Td0ZPTcA</youtube>
-
-
-## 3. RSD Software
-
-<youtube>tQrLh0w178U</youtube>
+## 3. [RSD Software](/Data/video/테라텍_영상1.mp4)
