@@ -2,7 +2,8 @@
 * 자체 개발 메모리 서버, NVMe 스토리지 서버를 포함한 컴퓨팅, GPU HW 자원 풀 구성
 * 자원풀은 100G 급 네트워크로 연결되며, 자원풀을 운영하기 위한 관리 SW 구성
 
-[[File:랙컴퓨팅PoC_rev.png]]
+![PoC_rev](Data/image/02/01.png)
+
 <랙컴퓨팅PoC 구조도>
 
 
@@ -20,7 +21,8 @@
 ### B. 스토리지 서버 개발 보드 종류 및 규격
 * PCIe Switch 보드
 
-[[File:PCIe Switch 보드.png]]
+![PCIe Switch](Data/image/02/02.png)
+
 
 <PCIe Switch 보드>
 
@@ -34,7 +36,10 @@
    - PCIe Downlink, PCIe clock, Sideband signal Interface
 
 * NVMe Disk Backplane 보드
-[[File : NVMe Disk Backplane 보드.png]]
+
+![NVMe Disk Backplane](Data/image/02/03.png)
+
+
 <NVMe Disk Backplane 보드>
 
    - SFF-8639 Connector x24 개 장착
@@ -43,14 +48,19 @@
    - PCIe Downlink, PCIe clock, Sideband signal Interface
 
 * x16 PCIe Interface 보드
-[[File : x16 PCIe Interface 보드.png]]
+
+![x16 PCIe Interface](Data/image/02/04.png)
+
 <x16 PCIe Interface 보드>
 
    - MiniSAS HD 1x1 Connector 4개 장착
    - PCIe Gen3 x16 Uplink 지원
 
 * x8 PCIe Interface 보드
-[[File : x8 PCIe Interface 보드.png]]
+
+![x8 PCIe Interface](Data/image/02/05.png)
+
+
 <x8 PCIe Interface 보드>
 
    - MiniSAS HD 1x1 Connector 2개 장착
@@ -59,7 +69,8 @@
 
 ### C. 스토리지 서버 시스템 구조 및 규격
 
-[[File:NVMe SSD 스토리지 서버 시스템 구조.png]]
+![NVMe SSD](Data/image/02/06.png)
+
 <스토리지 서버 시스템 구조>
 
    - NVMe 스토리지 서버는 랙 컴퓨팅 시스템에서 Storage Resource 풀을 구성하는 시스템으로 외부와는 패브릭 네트워크 및 관리 네트워크로 연결되어 있으며 내부 NVMe 스토리지는 PCIe 스위치로 확장되어 Storage 자원을 제공한다.  
@@ -106,7 +117,8 @@
 ### B. SW 개발 환경과 버전
 • SW 아키텍처 구성도
 
-[파일:arch구성도.png|frameless|650px]]
+![arch](Data/image/02/07.png)
+
 <아키텍처 구성도>
 
 • 기능설명
@@ -114,19 +126,24 @@
       * Message Queue(RabbitMQ)를 통한 제어 모듈들에 Event 방식으로 상호 연결되어서 처리되어 있음.
       * 각 제어 모듈은 Micro Service 형태로 구현되어 기능적인 확장이 용이함.
 
-| [[파일:cm구성도.png|650px|프레임없음|없음]] 
+![cm](/Data/image/02/08.png)
+
 <Cluster Manager 구성도> 
 
   * PODM : 포드 관리자는 포드의 각 랙 내 모든 리소스를 검색하고 기록하며 상위 오케스트레이션 계층의 요청에 따라 시스템을 구성함
       * 사용 가능한 리소스를 요청한 구성에 따라 PODM은 PSME에게 필요한 작업 (스위치 매개 변수 설정, IP 주소 매핑, 네임 스페이스 및 스토리지 볼륨 생성 등)을 수행하도록 요청하고 오케스트레이션 계층에 정보를 반환함
       * 작성된 시스템에 프로비저닝 및 워크로드 분배를 수행 함
-[[파일:PDOM struct ARCH.png|650px|프레임없음|없음]]
+
+![PDOM struct ARCH](Data/image/02/09.png)
+
 <PODM(v2.5) 내부 구성도> 
 
   * PSME : 시스템 관리 엔진으로 각 리소스 모듈 제어 기능과 각 리소스 모듈의 상호 연결
       * 각 블레이드, 각 섀시, 각 드로어 또는 전체 랙에 대한 하나의 구성 요소로 실행될 수 있도록 구현
       * 스토리지 볼륨 생성 등과 같은 구성을 지원하는 데 필요한 기능을 제공하는 PSME 소프트웨어 구성 요소가 포함 되어 있음
-[파일:PSME module ARCH.png|650px|프레임없음|없음]]
+
+![PSME module ARCH](Data/image/02/10.png)
+
  <PSME Module 구성도>
 
   * RMM : 각 랙에는 RMM이 있으며 이는 PSME 및 PODM와 통신하고 다양한 랙 기능을 수행
