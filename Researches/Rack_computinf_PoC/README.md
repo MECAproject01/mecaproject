@@ -5,7 +5,11 @@
 [[File:랙컴퓨팅PoC_rev.png]]
 <랙컴퓨팅PoC 구조도>
 
+
+
 ## 2. 랙 컴퓨팅 HW 개발
+
+
 ### A. 스토리지 서버 개발 플랫폼
 * L-Shape 형태의 KN-H620 서버보드 사용
 * Intel Xeon Scalable Processor 지원
@@ -29,7 +33,6 @@
    - SAMTEC ERM8 Highspeed Connector 5개 장착 
    - PCIe Downlink, PCIe clock, Sideband signal Interface
 
-
 * NVMe Disk Backplane 보드
 [[File : NVMe Disk Backplane 보드.png]]
 <NVMe Disk Backplane 보드>
@@ -39,7 +42,6 @@
    - SAMTEC ERF8 Highspeed Connector 5개 장착
    - PCIe Downlink, PCIe clock, Sideband signal Interface
 
-
 * x16 PCIe Interface 보드
 [[File : x16 PCIe Interface 보드.png]]
 <x16 PCIe Interface 보드>
@@ -47,13 +49,13 @@
    - MiniSAS HD 1x1 Connector 4개 장착
    - PCIe Gen3 x16 Uplink 지원
 
-
 * x8 PCIe Interface 보드
 [[File : x8 PCIe Interface 보드.png]]
 <x8 PCIe Interface 보드>
 
    - MiniSAS HD 1x1 Connector 2개 장착
    - PCIe Gen3 x8 Uplink 지원
+
 
 ### C. 스토리지 서버 시스템 구조 및 규격
 
@@ -80,7 +82,9 @@
 |System FAN|6x System FAN 
 
 
+
 ## 3. 랙 컴퓨팅 SW 개발
+
 ### A. SW 개발 영역
 |**기능 변경점**|**-**|**인텔 RSD 2.3**|**인텔 RSD 2.5**|**2019 구현**|**2020 구현**|
 |:-:|:--:|:--:|:-:|:-:|:-:|
@@ -97,6 +101,7 @@
 |    |Kubernetis|선택적 이용|기본 구성|지원|지원|
 |    |Virtualization|VM 기반|Docker 기반|지원|지원|
 |    |AAA|Not supported|Supported|지원|지원|
+
 
 ### B. SW 개발 환경과 버전
 • SW 아키텍처 구성도
@@ -168,6 +173,7 @@
 |PSME Server|PSME REST Server|
 |PODM|POD Manager|
 |클라우드 관리자|K8s|
+
 
 ### C. 구현 및 테스트
 * Dynamic Server Cluster 증가
