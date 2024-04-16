@@ -6,13 +6,13 @@
 지난 70년간 컴퓨터는 CPU와 메모리를 사용하여 컴퓨터를 구동하는 폰 노이만(Von Neumann) 구조를 사용하고 있으며, CPU 집적도 증가 및 고성능 CPU 아키텍처 적용을 통한 컴퓨팅 능력을 향상시키는 프로세서 중심 컴퓨팅(Processor Centric Computing)이 주류를 이루었다. 
 프로세서 중심 컴퓨팅에서는 병렬처리를 위해서 다수 프로세서의 메모리 간, 그리고 각 메모리 계층 간의 데이터 이동이 필수적이다. 하지만, 빅데이터, AI, IoT 등의 대용량 데이터의 처리 시에 데이터 이동 문제가 더욱 심각해져, CPU의 처리속도가 아닌 데이터가 컴퓨팅 성능 및 에너지에 영향을 미치는 메모리 병목 현상을 야기시킨다. 아울러, 프로세서의 성능 개선만으로는 전체 시스템 성능 향상에 기여하는 것은 물리적으로 한계가 존재한다. 
 즉, 메모리가 DIMM 소켓 형태의 CPU 핀에 연결되는 형상에서 대규모 데이터 처리를 위한 메모리의 확장은 CPU의 핀수 및 DDR 채널수 등이 물리적으로 제한됨을 의미한다. 이로인하여 CPU 코어 당 메모리 대역폭은 계속 감소하고 있다.
-![](https://private-user-images.githubusercontent.com/167105538/322528895-01d86dcd-a4a0-4039-be10-6049a82b7868.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTMxOTM2NDUsIm5iZiI6MTcxMzE5MzM0NSwicGF0aCI6Ii8xNjcxMDU1MzgvMzIyNTI4ODk1LTAxZDg2ZGNkLWE0YTAtNDAzOS1iZTEwLTYwNDlhODJiNzg2OC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNDE1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDQxNVQxNTAyMjVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0yZWZlODRlMmY3MjUyNGRmZjNiNDliOWI3NzZkY2Y4YWQ3MDFiZjcwOGUwYmIwYWMxZjk0YmI4NDI4YzQ2YTU4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.cIQcZqDZU1RGGquIca0S_MdKkRN-wiv4lYUbUrCgbUk)
+![M1](/Data/image/00/01.png)
 
 
 ## 데이터센터 내 효율적 자원확장 한계
 
 지금까지 수십 년 동안 데이터센터의 자원 단위로 CPU, 메모리, 저장장치 및 마더보드 등 하드웨어와 이를 관리하기 위한 OS가 구동되는 monolithic 서버를 사용해 왔다. 그러나, 데이터센터의 워크로드는 점점 다양해지며 데이터 크기 역시 가변적이다. 이에 자원 활용률 및 성능 측면에서 CPU와 메모리및 저장장치의 자원 균형이 적절한 monolithic 서버 시스템을 설계하는 것은 어렵다. 이와 같은 어려움으로 인하여 데이터 센터에서는 미래의 수요를 총족시킬 수 있는 충분한 서버 단위의 자원을 구축하는 것이 필요하다. 실제로, 최대 성능을 위한 초과 프로비저닝을 통해 자원을 배치한다. 이는 TCO 증가를 초래할 뿐만 아니라, 자원 활용률이나 최대 성능 대비 실제 사용되는 성능이 매우 낮은 경우가 많다.
-![](https://private-user-images.githubusercontent.com/167105538/322529603-3823dddd-81c7-483e-ae17-be7d3f0e94ce.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTMxOTM3NTgsIm5iZiI6MTcxMzE5MzQ1OCwicGF0aCI6Ii8xNjcxMDU1MzgvMzIyNTI5NjAzLTM4MjNkZGRkLTgxYzctNDgzZS1hZTE3LWJlN2QzZjBlOTRjZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNDE1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDQxNVQxNTA0MThaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mYzE4MGY1Njg2NWMwODA4Mjc4NWJhZmQ3MDgyMDk0NDIzN2QwMWJhNDI3OGU2OWVkZmI2MDI4MTQyM2M3OTNhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.mDAobG38ilv8z-RdQFMCi6Rnv2fBFN7kdEGS4AI8U3g)
+![M2](/Data/image/00/02.png)
 
 ## MECA 과제 주요 연구내용
 본 과제에서는 1단계로, CPU와 확장 메모리 간의 시스템 수준 통합을 위한 메모리 중심 컴퓨팅 시스템 기술로 고속 메모리 연결망 요소 기술, 메모리 중심 컴퓨팅 아키텍처 및 하드웨어 기술, 공유 메모리 운영관리 소프트웨어 기술을 개발한다. 랙 수준의 자원 풀 통합을 위한 랙 컴퓨팅 시스템 기술로 고속 I/O 연결망 요소 기술, 스토리지 풀 서버 기술, 랙 단위 동적 자원 관리 소프트웨어 기술을 개발한다.
@@ -20,7 +20,7 @@
 
 ## 참여기관 및 추진체계
 현재 본 과제는 ETRI 초성능 컴퓨팅 연구본부 고성능 컴퓨팅시스템연구실에서 주관하며,  [KAIST](https://jongse-park.github.io/), [DIGST](https://cas.dgist.ac.kr/)의 연구기관과 [테라텍](http://www.teratec.co.kr/), [한국컴퓨팅산업협회](http://k-cia.or.kr/) 가 참여기관으로 연구 개발을 수행하고 있다. 
-![](https://private-user-images.githubusercontent.com/167105538/322529887-7a327bfe-3869-4feb-a912-964cffec71d9.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTMxOTM4MDYsIm5iZiI6MTcxMzE5MzUwNiwicGF0aCI6Ii8xNjcxMDU1MzgvMzIyNTI5ODg3LTdhMzI3YmZlLTM4NjktNGZlYi1hOTEyLTk2NGNmZmVjNzFkOS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNDE1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDQxNVQxNTA1MDZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kNDFkZGNiZjI4Y2YxNDJlYjJlNGVkYjMxZmFiM2NjNzMwYzVhYzExZjk3NjY1NzZmMzQxMjBiOGU2MjZkZTBiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.bCyYvR7lX-KWkvuuBxvT-Fv0HTEp1AAIa22GiycKiUc)
+![M3](/Data/image/00/03.png)
 
 ## 관련 싸이트 링크
 
