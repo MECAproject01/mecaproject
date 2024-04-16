@@ -75,5 +75,5 @@
   - 메모리 중심 컴퓨팅에 의한 스케일업이 가능할 뿐만 아니라 바운드리스 컴퓨팅에 의한 랙단위 수준으로 스케일아웃이 가능
 
 ## 참고문헌
-1. [OCP] Greg Casey, “GEN-Z:　High-performance interconnect for the data-centric future,” OCP Summit 2018
-2.  [FSD] A. Klimovic, et al., “Flash Storage Disaggregation,” EuroSys’16, April 2016
+1. [(OCP) Greg Casey, “GEN-Z:　High-performance interconnect for the data-centric future,” OCP Summit 2018](/Data/documents/OCP-GenZ-March-2018-final.pdf)
+2. [(FSD) A. Klimovic, et al., “Flash Storage Disaggregation,” EuroSys’16, April 2016](/Data/documents/A._Klimovic,_et_al.,_“Flash_Storage_Disaggregation,”_EuroSys’16,_April_2016.pdf)
