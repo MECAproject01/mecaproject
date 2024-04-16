@@ -55,7 +55,7 @@
 
 [랙 컴퓨팅 PoC]
 
-[결과물 ]
+[결과물 동영상]
 
 [홍보물1](Data/documents/promotion.pdf)
 
