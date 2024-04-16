@@ -1,8 +1,7 @@
 # 2차년도 결과물
 ## 1. MOCA_Hardware 2019_Demo
 
-<youtube>k1KCeuQeGK0</youtube>
-
+(/Data/video/MOCA_Hardware_2019_Demo.webm)
 
 ## 2. 메모리공유(FAME)
 
