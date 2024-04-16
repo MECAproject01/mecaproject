@@ -5,22 +5,14 @@
 ## 프로세서 중심 컴퓨팅 메모리 병목 현상
 지난 70년간 컴퓨터는 CPU와 메모리를 사용하여 컴퓨터를 구동하는 폰 노이만(Von Neumann) 구조를 사용하고 있으며, CPU 집적도 증가 및 고성능 CPU 아키텍처 적용을 통한 컴퓨팅 능력을 향상시키는 프로세서 중심 컴퓨팅(Processor Centric Computing)이 주류를 이루었다. 
 프로세서 중심 컴퓨팅에서는 병렬처리를 위해서 다수 프로세서의 메모리 간, 그리고 각 메모리 계층 간의 데이터 이동이 필수적이다. 하지만, 빅데이터, AI, IoT 등의 대용량 데이터의 처리 시에 데이터 이동 문제가 더욱 심각해져, CPU의 처리속도가 아닌 데이터가 컴퓨팅 성능 및 에너지에 영향을 미치는 메모리 병목 현상을 야기시킨다. 아울러, 프로세서의 성능 개선만으로는 전체 시스템 성능 향상에 기여하는 것은 물리적으로 한계가 존재한다. 
-즉, 메모리가 DIMM 소켓 형태의 CPU 핀에 연결되는 형상에서 대규모 데이터 처리를 위한 메모리의 확장은 CPU의 핀수 및 DDR 채널수 등이 물리적으로 제한됨을 의미한다. 이로인하여 CPU 코어 당 메모리 대역폭은 계속 감소하고 있다.<ref>[[Media:OCP-GenZ-March-2018-final.pdf |[OCP] Greg Casey, “GEN-Z:　High-performance interconnect for the data-centric future,” OCP Summit 2018]]</ref>
+즉, 메모리가 DIMM 소켓 형태의 CPU 핀에 연결되는 형상에서 대규모 데이터 처리를 위한 메모리의 확장은 CPU의 핀수 및 DDR 채널수 등이 물리적으로 제한됨을 의미한다. 이로인하여 CPU 코어 당 메모리 대역폭은 계속 감소하고 있다.
+![](https://private-user-images.githubusercontent.com/167105538/322528895-01d86dcd-a4a0-4039-be10-6049a82b7868.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTMxOTM2NDUsIm5iZiI6MTcxMzE5MzM0NSwicGF0aCI6Ii8xNjcxMDU1MzgvMzIyNTI4ODk1LTAxZDg2ZGNkLWE0YTAtNDAzOS1iZTEwLTYwNDlhODJiNzg2OC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNDE1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDQxNVQxNTAyMjVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0yZWZlODRlMmY3MjUyNGRmZjNiNDliOWI3NzZkY2Y4YWQ3MDFiZjcwOGUwYmIwYWMxZjk0YmI4NDI4YzQ2YTU4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.cIQcZqDZU1RGGquIca0S_MdKkRN-wiv4lYUbUrCgbUk)
+
 
 ## 데이터센터 내 효율적 자원확장 한계
 
-지금까지 수십 년 동안 데이터센터의 자원 단위로 CPU, 메모리, 저장장치 및 마더보드 등 하드웨어와 이를 관리하기 위한 OS가 구동되는 monolithic 서버를 사용해 왔다. 그러나, 데이터센터의 워크로드는 점점 다양해지며 데이터 크기 역시 가변적이다. 이에 자원 활용률 및 성능 측면에서 CPU와 메모리및 저장장치의 자원 균형이 적절한 monolithic 서버 시스템을 설계하는 것은 어렵다. 이와 같은 어려움으로 인하여 데이터 센터에서는 미래의 수요를 총족시킬 수 있는 충분한 서버 단위의 자원을 구축하는 것이 필요하다. 실제로, 최대 성능을 위한 초과 프로비저닝을 통해 자원을 배치한다. 이는 TCO 증가를 초래할 뿐만 아니라, 자원 활용률이나 최대 성능 대비 실제 사용되는 성능이 매우 낮은 경우가 많다. <ref>[[Media:A. Klimovic, et al., “Flash Storage Disaggregation,” EuroSys’16, April 2016.pdf | [FSD] A. Klimovic, et al., “Flash Storage Disaggregation,” EuroSys’16, April 2016]]</ref>
-
-## 메모리 중심 컴퓨팅 개념
-메모리 병목 현상과 자원의 불균형을 해결하고 SCM(Storage Class Memory)과 같은 새로운 메모리 기술을 이용하고자 메모리 중심 컴퓨팅 (Memory Centric Computing) 개념이 대두되었다. 메모리 중심 컴퓨팅은 데이터 이동을 최소화하기 위해 가능한 메모리에 가까운 곳에서 데이터를 처리하고, 휘발성 메모리 외에 바이트 접근이 가능한 대용량 비휘발성 메모리 공유하는 컴퓨팅 모델이다.
-아래 그림은 기존 프로세서 중심 컴퓨팅 구조와 SCM 메모리 풀을 사용한 메모리 중심 컴퓨팅의 개념도를 비교해서 나타내고 있다. 기존(프로세서 중심구조) 컴퓨팅은 각각의 서버에 로컬 메모리를 가지며, 다른 서버의 메모리를 접근하기 위해서는 반드시 네트워크를 통해야만 가능하다. 그러나, 메모리 중심 컴퓨팅 구조에서는 로컬 메모리는 그대로 사용 가능하며, 대규모 SCM 메모리 풀을 메모리 연결망을 통해 다수의 서버가 공유할 수 있다. 이를 통해 기존 CPU들의 비효율적인 메모리 접근 문제를 해결하고, 스케일아웃이 용이한 시스템을 구성할 수 있다. 이울러, 메모리에 대한 자원 분할(resource disaggregation) 개념을 적용할 수 있다.
-
-[[File:processor_mem_structure_700.png]]
-
-## MECA 과제 목표
-본 과제에서는 메모리 병목 현상에 따른 기존 프로세서 중심 컴퓨팅의 한계를 극복하기 위해 대용량의 메모리 풀을 여러 프로세서가 공유하는 메모리 중심 컴퓨팅 시스템을 개발한다. 아울러, 컴퓨터 서버 단위의 자원을 범용 네트워크로 관리하는 기존 방식을 랙 수준에서 고집적 모듈, 자원 풀 단위로 분해(disaggregation)하여, 자원확장 문제를 해결하고 이를 랙 간에서 적용할 수 있는 바운드리스(bound-less) 컴퓨팅까지 확장하고자 한다.
-
-[[File:TO BE.png]]
+지금까지 수십 년 동안 데이터센터의 자원 단위로 CPU, 메모리, 저장장치 및 마더보드 등 하드웨어와 이를 관리하기 위한 OS가 구동되는 monolithic 서버를 사용해 왔다. 그러나, 데이터센터의 워크로드는 점점 다양해지며 데이터 크기 역시 가변적이다. 이에 자원 활용률 및 성능 측면에서 CPU와 메모리및 저장장치의 자원 균형이 적절한 monolithic 서버 시스템을 설계하는 것은 어렵다. 이와 같은 어려움으로 인하여 데이터 센터에서는 미래의 수요를 총족시킬 수 있는 충분한 서버 단위의 자원을 구축하는 것이 필요하다. 실제로, 최대 성능을 위한 초과 프로비저닝을 통해 자원을 배치한다. 이는 TCO 증가를 초래할 뿐만 아니라, 자원 활용률이나 최대 성능 대비 실제 사용되는 성능이 매우 낮은 경우가 많다.
+![](https://private-user-images.githubusercontent.com/167105538/322529603-3823dddd-81c7-483e-ae17-be7d3f0e94ce.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTMxOTM3NTgsIm5iZiI6MTcxMzE5MzQ1OCwicGF0aCI6Ii8xNjcxMDU1MzgvMzIyNTI5NjAzLTM4MjNkZGRkLTgxYzctNDgzZS1hZTE3LWJlN2QzZjBlOTRjZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNDE1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDQxNVQxNTA0MThaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mYzE4MGY1Njg2NWMwODA4Mjc4NWJhZmQ3MDgyMDk0NDIzN2QwMWJhNDI3OGU2OWVkZmI2MDI4MTQyM2M3OTNhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.mDAobG38ilv8z-RdQFMCi6Rnv2fBFN7kdEGS4AI8U3g)
 
 ## MECA 과제 주요 연구내용
 본 과제에서는 1단계로, CPU와 확장 메모리 간의 시스템 수준 통합을 위한 메모리 중심 컴퓨팅 시스템 기술로 고속 메모리 연결망 요소 기술, 메모리 중심 컴퓨팅 아키텍처 및 하드웨어 기술, 공유 메모리 운영관리 소프트웨어 기술을 개발한다. 랙 수준의 자원 풀 통합을 위한 랙 컴퓨팅 시스템 기술로 고속 I/O 연결망 요소 기술, 스토리지 풀 서버 기술, 랙 단위 동적 자원 관리 소프트웨어 기술을 개발한다.
@@ -28,8 +20,7 @@
 
 ## 참여기관 및 추진체계
 현재 본 과제는 ETRI 초성능 컴퓨팅 연구본부 고성능 컴퓨팅시스템연구실에서 주관하며,  [KAIST](https://jongse-park.github.io/), [DIGST](https://cas.dgist.ac.kr/)의 연구기관과 [테라텍](http://www.teratec.co.kr/), [한국컴퓨팅산업협회](http://k-cia.or.kr/) 가 참여기관으로 연구 개발을 수행하고 있다. 
-
-[[File:Fig11.png|700x530px]]
+![](https://private-user-images.githubusercontent.com/167105538/322529887-7a327bfe-3869-4feb-a912-964cffec71d9.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTMxOTM4MDYsIm5iZiI6MTcxMzE5MzUwNiwicGF0aCI6Ii8xNjcxMDU1MzgvMzIyNTI5ODg3LTdhMzI3YmZlLTM4NjktNGZlYi1hOTEyLTk2NGNmZmVjNzFkOS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNDE1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDQxNVQxNTA1MDZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kNDFkZGNiZjI4Y2YxNDJlYjJlNGVkYjMxZmFiM2NjNzMwYzVhYzExZjk3NjY1NzZmMzQxMjBiOGU2MjZkZTBiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.bCyYvR7lX-KWkvuuBxvT-Fv0HTEp1AAIa22GiycKiUc)
 
 ## 관련 싸이트 링크
 
@@ -46,7 +37,7 @@
 [dRedbox Project](http://www.dredbox.eu/about/)
 
 ## 공개 소프트웨어 활동
-본 과제에서는 연구 개발 단계의 각 산출물 및 노하우 공유를 위해 공개 소프트웨어 개발 및 운영 방식에 기반한 오픈소스를 본 커뮤니티와 github에 공개한다.이를 통해, 국내 관련 업체들의 아이디어 수렴 및 공동 설계를 추진하고자 한다.본 과제의 공개 소프트웨어 개발 및 운영 방식과 오픈소스 활용시 고려할 사항은 [[Media:(서식)_공개_SW_활용_서약서_양식.hwp|'''한국컴퓨팅산업협회문서''']]에서 정리하였다. 아울러, 공개 소프트웨어 구동을 위한 하드웨어 보드는 한국컴퓨팅산업협회를 통하여 대여 가능하다. 현재까지의 공개 소프트웨어 정보는 다음 표와 같다.
+본 과제에서는 연구 개발 단계의 각 산출물 및 노하우 공유를 위해 공개 소프트웨어 개발 및 운영 방식에 기반한 오픈소스를 본 커뮤니티와 github에 공개한다.이를 통해, 국내 관련 업체들의 아이디어 수렴 및 공동 설계를 추진하고자 한다.본 과제의 공개 소프트웨어 개발 및 운영 방식과 오픈소스 활용시 고려할 사항은 [한국컴퓨팅산업협회 문서]에서 정리하였다. 아울러, 공개 소프트웨어 구동을 위한 하드웨어 보드는 한국컴퓨팅산업협회를 통하여 대여 가능하다. 현재까지의 공개 소프트웨어 정보는 다음 표와 같다.
 
 
 |소스(컴포넌트)명|라이선스명|특허 유/무|SW분야|공개일정|
@@ -60,24 +51,28 @@
 |[L4fame Build Container execution environment](https://github.com/moca-etri/l4fame/)|GPL v2 라이선스|무|운영체제|공개완료
 
 ## 결과물
-* '''[[메모리 연결망]]'''
-* '''[[랙 컴퓨팅 PoC]]'''
-* '''[[결과물 동영상]]'''
-* '''[[Media : 메모리 컴퓨팅 홍보물.pdf|홍보물1]]'''
-* '''[[Media : 메모리중심차세대컴퓨팅 시스템 구조 연구.pdf|홍보물2]]'''
+[메모리 연결망]
+
+[랙 컴퓨팅 PoC]
+
+[결과물 ]
+
+[홍보물1](Data/documents/promotion.pdf)
+
 
 ## 활용방안 및 기대효과
 본 과제의 연구결과는 다음과 같이 활용될 전망이다.
 
 * 데이터센터/클라우드 컴퓨팅
-:- 랙 컴퓨팅 시스템 내에서 다양한 규모의 클라우드 서비스를 동시 지원 가능하여 비용 대비 최대 시너지 효과 기대
-:- 자원 요구량이 다양한클라우드 서비스의 경우, 랙 컴퓨팅 시스템 내 자원을 동적 구성하여 다수의 웹서버 서비스 가능
+  - 랙 컴퓨팅 시스템 내에서 다양한 규모의 클라우드 서비스를 동시 지원 가능하여 비용 대비 최대 시너지 효과 기대
+  - 자원 요구량이 다양한클라우드 서비스의 경우, 랙 컴퓨팅 시스템 내 자원을 동적 구성하여 다수의 웹서버 서비스 가능
 
 * 빅데이터/지능정보/IoT 처리 시스템
-:- 메모리 중심 컴퓨팅 시스템을 이용하여 빅데이터 분석을 위한 분산 처리 서비스 가능
-:- IoT, 기계학습, 딥러닝의 고속 실시간 데이터 처리를 위한 대규모 메모리 풀 제공
+  - 메모리 중심 컴퓨팅 시스템을 이용하여 빅데이터 분석을 위한 분산 처리 서비스 가능
+  - IoT, 기계학습, 딥러닝의 고속 실시간 데이터 처리를 위한 대규모 메모리 풀 제공
 
 * 고속 대규모 처리 시스템
-:- 메모리 중심 컴퓨팅에 의한 스케일업이 가능할 뿐만 아니라 바운드리스 컴퓨팅에 의한 랙단위 수준으로 스케일아웃이 가능
+  - 메모리 중심 컴퓨팅에 의한 스케일업이 가능할 뿐만 아니라 바운드리스 컴퓨팅에 의한 랙단위 수준으로 스케일아웃이 가능
 
 ## 참고문헌
+1. ![](https://github.com/MECAproject01/meca/files/14981025/OCP-GenZ-March-2018-final.pdf)
