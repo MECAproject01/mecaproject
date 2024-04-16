@@ -10,8 +10,8 @@
 
 # 3차년도 결과물 (Video)
 
-## 1. [MOCA 2020 Demo](/Data/video/ETRI Gen-Z.mp4)
+## 1. [MOCA 2020 Demo](/Data/video/ETRI_Gen-Z.mp4)
 
-## 2. [RackComputing Hardware](/Data/video/KTNF 동영상.mp4)
+## 2. [RackComputing Hardware](/Data/video/KTNF_동영상.mp4)
 
 ## 3. [RSD Software](/Data/video/테라텍_영상1.mp4)
