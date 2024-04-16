@@ -150,8 +150,8 @@
 ||vlan|
 ||acl|
 |클라우드 관리자|K8s|
-|PSME URL|[https://github.com/moca-etri/psme/ https://github.com/moca-etri/psme]|
-|PODM URL|[https://github.com/intel/intelRSD/tree/master/PODM/SW/ https://github.com/intel/intelRSD/tree/master/PODM/SW/]|
+|PSME URL|https://github.com/moca-etri/psme/ https://github.com/moca-etri/psme|
+|PODM URL|https://github.com/intel/intelRSD/tree/master/PODM/SW/ https://github.com/intel/intelRSD/tree/master/PODM/SW/|
 
 
 |개발영역|내용|
