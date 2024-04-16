@@ -6,6 +6,7 @@
 
 ![w](Data/image/01/memory1.png)
 
+
 [[File:메모리연결망 HW 상세구조.png]]
 
 <메모리연결망 하드웨어 상세구조>
@@ -49,9 +50,9 @@
 
 ## 2. 개발 환경
 ### A. 메모리 연결망 HW/SW 개발용 테스트 완료된 플랫폼
-* 테스트 베드 1 : '''[https://www.hpe.com/kr/ko/product-catalog/servers/proliant-servers/pip.models.hpe-proliant-dl380-gen10-server.1010026818.html// HPE DL380 Gen 10 서버]'''
-* 테스트 베드 2 : '''[https://www.dell.com/ko-kr/work/shop/povw/poweredge-r730// Dell R730 서버]'''
-* 테스트 베드 3 : '''[https://www.amd.com/ko/products/ryzen-threadripper// AMD RYZEN Threadripper 기반 서버]'''
+* 테스트 베드 1 : [HPE DL380 Gen 10 서버](https://www.hpe.com/kr/ko/product-catalog/servers/proliant-servers/pip.models.hpe-proliant-dl380-gen10-server.1010026818.html/)
+* 테스트 베드 2 : [Dell R730 서버](https://www.dell.com/ko-kr/work/shop/povw/poweredge-r730/)
+* 테스트 베드 3 : [AMD RYZEN Threadripper 기반 서버](https://www.amd.com/ko/products/ryzen-threadripper/)
 
 ### B. 메모리 연결망 HW/SW 개발보드 종류 및 규격
 * Bittware XUPP3R 개발 보드
@@ -59,8 +60,8 @@
 
 <Bittware 개발 보드>
 
-:- Xilinx xcvu9p-flgb2014-2-e FPGA 장착
-:- 4 DDR4 RDIMM 슬롯지원, PCIe Gen3 x16 지원
+   - Xilinx xcvu9p-flgb2014-2-e FPGA 장착
+   - 4 DDR4 RDIMM 슬롯지원, PCIe Gen3 x16 지원
 : &#8251; 제품정보 [http://www.bittware.com/fpga/xup-p3r/ http://www.bittware.com/fpga/xup-p3r]
 
 
@@ -69,11 +70,11 @@
 
 <AlphaData 개발 보드>
 
-:- Xilinx Kintex&reg; UltraScale&trade; XCKU115-2 - FLVA1517E
-:- 6x PCI Express Gen3 x8 cores
-:- 16GB DDR4 내장메모리
-
-: &#8251; 제품정보 [https://www.alpha-data.com/dcp/products.php?product=adm-pcie-8k5/ https://www.alpha-data.com/dcp/products.php?product=adm-pcie-8k5]
+   - Xilinx Kintex&reg; UltraScale&trade; XCKU115-2 - FLVA1517E
+   - 6x PCI Express Gen3 x8 cores
+   - 16GB DDR4 내장메모리
+   - 
+      &#8251; [제품정보](https://www.alpha-data.com/dcp/products.php?product=adm-pcie-8k5/ https://www.alpha-data.com/dcp/products.php?product=adm-pcie-8k5)
 
 ## 3. 메모리 연결망 HW Device Driver
 <개발 SW 사양 및 툴체인 버전>
@@ -100,8 +101,8 @@
 |-
 ! scope="row"| Device driver
 |
-:- '''[https://github.com/moca-etri/Gen-Z-0.7-Hardware-Device-Driver// Gen-Z 0.7 Hardware Device Driver]'''
-:- '''[https://github.com/moca-etri/Gen-Z-1.0-Hardware-Device-Driver// Gen-Z 1.0 Hardware Device Driver]'''
+:- [Gen-Z 0.7 Hardware Device Driver](https://github.com/moca-etri/Gen-Z-0.7-Hardware-Device-Driver/)
+:- [Gen-Z 1.0 Hardware Device Driver](https://github.com/moca-etri/Gen-Z-1.0-Hardware-Device-Driver/)
 :- gzd-5.0 지원예정
 |-
 ! scope="row"| DKMS
